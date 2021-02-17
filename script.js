@@ -52,7 +52,7 @@ async function getWeather(latitude, longitude) {
 const weather = {
     temperature: {
         value: '',
-        unit: ''
+        unit: 'celsius'
     },
     description: '',
     iconId: '',
@@ -66,28 +66,30 @@ function celsiusToFahrenheit(temperature) {
 }
 
 tempElement.addEventListener('click', () => {
-    try{
 
-        if (temperature.value === undefined || temperature.value == '') {
-            return;
+    console.log('clicked');
+        if (weather.temperature.value === undefined || weather.temperature.value == '') {
+            return alert('No internet connection');
         }
-    }catch(err){
-        err = alert('Please Check your internet connection');
-    }
-    if (weather.temperature.unit === 'celsius') {
-        let fahrenheit = celsiusToFahrenheit(weather.temperature.value);
-        fahrenheit.innerHTML = Math.floor(fahrenheit);
-        tempElement.innerHTML = `${fahrenheit}° <span>F</span>`;
-        weather.temperature.unit = "fahrenheit"
-    } else if(weather.temperature.unit === 'fahrenheit') {
-        tempElement.innerHTML = `${weather.temperature.value}° <span>C</span>`;
-        weather.temperature.unit = 'celsius';
-    }
+        else{
+            if (weather.temperature.unit === 'celsius') {
+                let fahrenheit = celsiusToFahrenheit(weather.temperature.value);
+                fahrenheit.innerHTML = Math.floor(fahrenheit);
+                tempElement.innerHTML = `${fahrenheit}° <span>F</span>`;
+                weather.temperature.unit = "fahrenheit"
+                console.log('It worked');
+            } else if(weather.temperature.unit === 'fahrenheit') {
+                tempElement.innerHTML = `${weather.temperature.value}° <span>C</span>`;
+                weather.temperature.unit = 'celsius';
+            }
+        }
+        
+    
 });
 
 function displayWeather() {
 
-    iconElement.innerHTML = `<img src="icons/${weather.iconId}.png">`;
+    iconElement.innerHTML = `<img src="icons/${weather.iconId}.png" alt="unknown">`;
 
     tempElement.innerHTML = `${weather.temperature.value}° <span>C</span>`;
 

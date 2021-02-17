@@ -11,7 +11,10 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Weather">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link name="apple-touch-icon" href="icons\apple-touch-icon.png" type="image/x-icon">
+    <meta name="theme-color" content="#293251">
+    <link name="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="icons/favicon-32x32.png">
     <title>Weather App</title>
   </head>
 
@@ -20,11 +23,11 @@
       <div class="app-title"><p>Weather</p></div>
       <div class="notification"></div>
       <div class="weather-container">
-          <div class="weather-icon"><img src="icons/unknown.png" alt=""></div>
+          <div class="weather-icon"><img src="icons/unknown.png" alt="unknown"></div>
           <div class="temperature-value"><p>- °<span>C</span></p></div>
           <div class="temperature-description"><p>-</p></div>
           <div class="location"><p>-</p></div>
-      </div>
+        </div>
     </div>
     <script>
       if ('serviceWorker' in navigator) {
