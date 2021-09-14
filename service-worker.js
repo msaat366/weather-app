@@ -41,7 +41,7 @@ self.addEventListener('fetch', function(event) {
               .then(function(cache) {
                 cache.put(event.request, responseToCache);
               });
-              g
+              
               return response;
             }
           );
